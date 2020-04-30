@@ -168,6 +168,11 @@
   <ItemGroup>
     <Font Include="arial.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\sounds\paddle_hit.wav" />
+    <Media Include="..\sounds\score.wav" />
+    <Media Include="..\sounds\wall_hit.wav" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

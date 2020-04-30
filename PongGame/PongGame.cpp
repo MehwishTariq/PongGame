@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Paddle.h"
 #include "Ball.h"
 #include "Score.h"
@@ -35,6 +36,16 @@ int main()
 	void update(int p1s,int p2s,sf::RenderWindow &window) {
 
 		//intializing following variables for further use
+		sf::SoundBuffer buffer,buffer1,buffer2;
+		sf::Sound sound1,sound2,sound3;
+		buffer.loadFromFile("paddle_hit.wav");
+		buffer1.loadFromFile("wall_hit.wav");
+		buffer2.loadFromFile("score.wav");
+
+		sound1.setBuffer(buffer);
+		sound2.setBuffer(buffer1);
+		sound3.setBuffer(buffer2);
+
 		sf::Event Event;
 		sf::Keyboard::Key key;
 		sf::Font font;
@@ -148,6 +159,7 @@ int main()
 
 				//if ball collides with top or bottom border change the gameState and deflect the ball by assigning a new angle and changine gameState back
 				if (ball.borderCollision()) {
+					sound2.play();
 					gameState = 's';
 					if (gameState == 's') {
 						angle = ball.deflectBorder();
@@ -158,6 +170,7 @@ int main()
 				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by assigning a new angle and 
 				//changine gameState back
 				else if (p1.ballCollision(ball)) {
+					sound1.play();
 					gameState = 's';
 					if (gameState == 's') {
 						angle = ball.deflect(1);
@@ -167,6 +180,7 @@ int main()
 				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by assigning a new angle and 
 				//changine gameState back
 				else if (p2.ballCollision(ball)) {
+					sound1.play();
 					gameState = 's';
 					if (gameState == 's') {
 						angle = ball.deflect(2);
@@ -180,6 +194,7 @@ int main()
 				//check ball position to add in scores of player 1 or 2 and calling the function again using the new scores so as to update scores on window
 				//if ball moves to the extreme right add in scores of player1 
 				if (ball.getPosition().x > 690) {
+					sound3.play();
 					gameState = 's';
 					if (gameState == 's') {
 						p1Score += 1;
@@ -188,7 +203,8 @@ int main()
 				}
 
 				//if ball moves to the extreme left add in scores of player2
-				if (ball.getPosition().x < 0) {					 
+				if (ball.getPosition().x < 0) {		
+					sound3.play();
 					gameState = 's';
 					if (gameState == 's') {
 						p2Score += 1;

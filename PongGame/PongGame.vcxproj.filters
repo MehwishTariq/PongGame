@@ -16,6 +16,9 @@
     <Filter Include="Resource Files\Fonts">
       <UniqueIdentifier>{565f7128-e55d-4440-9a50-e87f6108ba76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\sounds">
+      <UniqueIdentifier>{c7856d7a-906e-47fc-bad3-7fb88d734b04}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PongGame.cpp">
@@ -46,5 +49,16 @@
     <Font Include="arial.ttf">
       <Filter>Resource Files\Fonts</Filter>
     </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\sounds\paddle_hit.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
+    <Media Include="..\sounds\score.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
+    <Media Include="..\sounds\wall_hit.wav">
+      <Filter>Resource Files\sounds</Filter>
+    </Media>
   </ItemGroup>
 </Project>
