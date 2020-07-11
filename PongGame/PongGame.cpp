@@ -19,10 +19,10 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(700, 600), "Pong");
 
 	//setting scores to '0' for both players
-	int p1s = 0, p2s = 0;
+	//int p1s = 0, p2s = 0;
 
 	//passing the scores and window to 'update' function
-	update(p1s, p2s, window);
+	update(0, 0, window);
 
 	return 0;
 
@@ -110,7 +110,8 @@ int main()
 			window.display();
 
 			//since we only need angle once when game starts, therefore we use gameState variable for this
-			//once 'Enter' key is pressed the ball will get a random angle and assign to 'angle' and change 'gameState' so that this block will not work again
+			//once 'Enter' key is pressed the ball will get a random angle and assign to 'angle' 
+			//and change 'gameState' so that this block will not work again
 			if (gameState == 's' && sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) {
 				angle = ball.getAngle();
 				gameState = 'p';
@@ -157,7 +158,8 @@ int main()
 					p1.paddleMove(key);
 				}
 
-				//if ball collides with top or bottom border change the gameState and deflect the ball by assigning a new angle and changine gameState back
+				//if ball collides with top or bottom border change the gameState and deflect the ball by assigning a new angle 
+				//and changing gameState back
 				if (ball.borderCollision()) {
 					sound2.play();
 					gameState = 's';
@@ -167,8 +169,8 @@ int main()
 					}
 				}
 
-				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by assigning a new angle and 
-				//changine gameState back
+				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by assigning a 
+				//new angle and changing gameState back
 				else if (p1.ballCollision(ball)) {
 					sound1.play();
 					gameState = 's';
@@ -177,8 +179,8 @@ int main()
 						gameState = 'p';
 					}
 				}
-				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by assigning a new angle and 
-				//changine gameState back
+				//if ball collides with player1 paddle samething happens change the gameState and deflect the ball by 
+				//assigning a new angle and changing gameState back
 				else if (p2.ballCollision(ball)) {
 					sound1.play();
 					gameState = 's';
@@ -191,7 +193,8 @@ int main()
 				//then move ball by using the assigned 'angle'
 				ball.velocity(angle);
 
-				//check ball position to add in scores of player 1 or 2 and calling the function again using the new scores so as to update scores on window
+				//check ball position to add in scores of player 1 or 2 and calling the function again using the new scores 
+				//so as to update scores on window
 				//if ball moves to the extreme right add in scores of player1 
 				if (ball.getPosition().x > 690) {
 					sound3.play();
@@ -212,7 +215,8 @@ int main()
 					}					
 				}
 					
-				//keep checking scores if increase to a certain number here is '2' tell who wins by passing player number 1 or 2 to playAgain() with gameState
+				//keep checking scores if increase to a certain number here is '2' tell who wins by passing player number 1 or 2 
+				//to playAgain() with gameState
 				if (p1Score > 2) {
 
 					gameState = 's';
@@ -234,7 +238,7 @@ int main()
 		
 		Score winner(font);
 
-		//keep whowing the string till 'Space' is pressed
+		//keep showing the string till 'Space' is pressed
 		while (true) {
 
 			//clears the window with black color show the respective string 
