@@ -26,7 +26,6 @@ void Ball::drawOn(sf::RenderWindow &window) {
 //get angle at which the ball will shoot randomly in that direction
 float Ball::getAngle() {
 
-	int count = 0;
 	float angle = -21;
 	const float PI = 3.16f;
 	

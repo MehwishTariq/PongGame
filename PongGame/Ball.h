@@ -5,7 +5,7 @@ class Ball
 {
 private:
 	sf::RectangleShape ball;
-	float speed = 0.12f;
+	float speed = 0.2f;
 	float dx,dy;
 	
 public:
